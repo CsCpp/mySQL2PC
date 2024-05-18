@@ -24,17 +24,18 @@ namespace mySQL2PC
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlBDpc2"].ConnectionString);
-            sqlConnection.Open();
-            if (sqlConnection.State == ConnectionState.Open)
+            try
             {
-                MessageBox.Show("Вы подключены. Все ОК.", "Connection");
+                sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlBDpc2"].ConnectionString);
+                sqlConnection.Open();
             }
-            else
+            catch (Exception)
             {
+
                 MessageBox.Show("ERROR", "Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+           
+           
         }
     }
 }
