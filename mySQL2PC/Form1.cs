@@ -16,7 +16,8 @@ namespace mySQL2PC
     {
 
         private SqlConnection sqlConnection=null;
-        
+        private SqlConnection sqlConnection1 = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,14 +29,25 @@ namespace mySQL2PC
             {
                 sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlBDpc2"].ConnectionString);
                 sqlConnection.Open();
+                MessageBox.Show("OK", "Connection BD2", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
 
                 MessageBox.Show("ERROR", "Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
-           
+            try
+            {
+                sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlBDpc1"].ConnectionString);
+                sqlConnection1.Open();
+                MessageBox.Show("OK", "Connection BD1", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("ERROR", "Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
